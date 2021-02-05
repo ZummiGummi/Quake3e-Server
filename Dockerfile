@@ -5,7 +5,7 @@ RUN \
     apt update \
     && apt install unzip -y \
     && unzip quake3e-linux-x86_64.zip -d /q3e \
-    && apt remove unzip \
+    && apt remove unzip -y \
     && rm -rf /var/lib/apt/lists/* \
     && rm quake3e-linux-x86_64.zip \
     && rm /q3e/quake3e-vulkan.x64 \
