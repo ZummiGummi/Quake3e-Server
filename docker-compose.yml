@@ -1,6 +1,6 @@
 version: "2"
 services:
-    q3e-server:
+    quake3e-server:
         image: ghcr.io/zummigummi/quake3e-server:latest
         container_name: quake3e-server
         restart: unless-stopped
