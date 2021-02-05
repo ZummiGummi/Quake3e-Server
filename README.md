@@ -6,6 +6,10 @@ This is a learning excercise for me on how to create my own container images.
 # Instructions
 Start your container with the example docker-compose.yml file.
 
+You can run it without compose using something like the below. Replace the /opt/quake3e-server/baseq3 with an actual folder on your server.
+
+`docker run -d --name=quake3e-server -p 27960:27960/udp -v /opt/quake3e-server/baseq3:/q3e/baseq3 ghcr.io/zummigummi/quake3e-server:latest`
+  
 Once your container starts, a new folder called baseq3 will be created.
 
 Copy your .pk3 files into this folder, along with your server.cfg file.
