@@ -11,9 +11,8 @@ RUN \
     && rm /q3e/quake3e-vulkan.x64 \
     && rm /q3e/quake3e.x64 \
     && chmod +x quake3e.ded.x64
-
-ENTRYPOINT ["/q3e/quake3e.ded.x64"]
-CMD ["exec", "server.cfg"]
+    
+CMD ["/q3e/quake3e.ded.x64", "+exec", "server.cfg"]
 
 EXPOSE 27960/udp
 VOLUME /q3e/baseq3
