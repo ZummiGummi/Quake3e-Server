@@ -1,0 +1,11 @@
+version: "2"
+services:
+    q3e-server:
+        image: ghcr.io/zummigummi/q3e-server:latest
+        container_name: q3e-server
+        restart: unless-stopped
+        volumes:
+            - ./base3q:/q3e/baseq3
+        ports:
+            - "27960:27960/udp"
+            
