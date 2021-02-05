@@ -3,10 +3,14 @@ WORKDIR /q3e
 ADD https://github.com/ec-/Quake3e/releases/download/latest/quake3e-linux-x86_64.zip ./
 RUN \
     apt update \
-    && apt install unzip -y \
+    && apt install unzip -y \    
     && unzip quake3e-linux-x86_64.zip -d /q3e \
-    && rm quake3e-linux-x86_64.zip \
-    && chmod +x quake3e.ded.x64
+    && apt remove unzip \
+    && rm -rf /var/lib/apt/lists/* \
+    && rm quake3e-linux-x86_64.zip \    
+    && rm /q3e/quake3e-vulkan.x64 \
+    && rm /q3e/quake3e.x64 \    
+    && chmod +x quake3e.ded.x64 \    
 
 ENTRYPOINT ["/q3e/quake3e.ded.x64"]
 CMD ["exec", "server.cfg"]
