@@ -20,8 +20,9 @@ RUN \
     apt update \
     && apt install curl unzip -y \ 
     && curl --location --output quake3e-linux-x86_64.zip https://github.com/ec-/Quake3e/releases/download/latest/quake3e-linux-x86_64.zip \
-    && unzip quake3e-linux-x86_64.zip -d /q3e \
-    && apt remove unzip curl -y \
+    && unzip quake3e-linux-x86_64.zip -d /q3e \    
+    && apt --purge autoremove unzip curl -y \
+    && apt clean -y \
     && rm -rf /var/lib/apt/lists/* \
     && rm quake3e-linux-x86_64.zip \
     && rm /q3e/quake3e-vulkan.x64 \
