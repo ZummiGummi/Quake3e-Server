@@ -5,15 +5,13 @@ FROM ubuntu:20.04
 # Create a folder called /q3e and move into it.
 WORKDIR /q3e
 
-# Download this file, it will go into /q3e due to the WORKDIR command from before.
-# ADD https://github.com/ec-/Quake3e/releases/download/latest/quake3e-linux-x86_64.zip ./
-
 # Using one long command broken into multiple lines to prevent multiple layers in image and keep image small.
 # Install curl and unzip, because it's not included in the base Ubuntu image.
-# Download Quake3e
+# Download Quake3e, --output is the filename you want to save and --location makes curl follow redirects if needed
 # Unzip the Quake3e zip we downloaded earlier.
-# Remove unzip since we no longer need it.
-# Remove apt cache files to keep the image as small as possible.
+# Remove curl and unzip since we no longer need it. --purge removes configuration files while autoremove removes the package including dependencies.
+# apt clean to removed cached packages
+# Remove apt package list
 # Delete client Quake3e files, we are only interested in the server part.
 # Make the Quake3e server file executable.
 RUN \
