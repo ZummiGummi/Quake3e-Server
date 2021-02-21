@@ -6,10 +6,11 @@ FROM ubuntu:20.04
 WORKDIR /q3e
 
 # Download this file, it will go into /q3e due to the WORKDIR command from before.
-ADD https://github.com/ec-/Quake3e/releases/download/latest/quake3e-linux-x86_64.zip ./
+# ADD https://github.com/ec-/Quake3e/releases/download/latest/quake3e-linux-x86_64.zip ./
 
 # Using one long command broken into multiple lines to prevent multiple layers in image and keep image small.
-# Download unzip, because it's not included in the base Ubuntu image.
+# Install curl and unzip, because it's not included in the base Ubuntu image.
+# Download Quake3e
 # Unzip the Quake3e zip we downloaded earlier.
 # Remove unzip since we no longer need it.
 # Remove apt cache files to keep the image as small as possible.
@@ -17,9 +18,10 @@ ADD https://github.com/ec-/Quake3e/releases/download/latest/quake3e-linux-x86_64
 # Make the Quake3e server file executable.
 RUN \
     apt update \
-    && apt install unzip -y \
+    && apt install curl unzip -y \ 
+    && curl --location --output quake3e-linux-x86_64.zip https://github.com/ec-/Quake3e/releases/download/latest/quake3e-linux-x86_64.zip
     && unzip quake3e-linux-x86_64.zip -d /q3e \
-    && apt remove unzip -y \
+    && apt remove unzip curl -y \
     && rm -rf /var/lib/apt/lists/* \
     && rm quake3e-linux-x86_64.zip \
     && rm /q3e/quake3e-vulkan.x64 \
