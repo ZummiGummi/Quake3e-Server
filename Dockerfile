@@ -9,10 +9,9 @@ WORKDIR /q3e
 ADD https://github.com/ec-/Quake3e/releases/download/latest/quake3e-linux-x86_64.zip ./
 
 # Using one long command broken into multiple lines to prevent multiple layers in image and keep image small.
-# Install curl and unzip, because it's not included in the base Ubuntu image.
-# Download Quake3e, --output is the filename you want to save and --location makes curl follow redirects if needed
+# Install unzip, because it's not included in the base Ubuntu image.
 # Unzip the Quake3e zip we downloaded earlier.
-# Remove curl and unzip since we no longer need it. --purge removes configuration files while autoremove removes the package including dependencies.
+# Remove unzip since we no longer need it. --purge removes configuration files while autoremove removes the package including dependencies.
 # apt clean to removed cached packages
 # Remove apt package list
 # Delete client Quake3e files, we are only interested in the server part.
