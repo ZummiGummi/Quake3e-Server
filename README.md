@@ -1,8 +1,6 @@
 # Quake3e-Server
 Quake3e server packaged as a docker container.
 
-This is a learning excercise for me on how to create my own container images.
-
 # Instructions
 Start your container with the example docker-compose.yml file.
 
