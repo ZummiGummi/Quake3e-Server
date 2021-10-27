@@ -4,9 +4,9 @@ on:
   
   push:
     
-    # Publish `v1.2.3` tags as releases.
+    # Publis `latest` tags as releases.
     tags:
-      - v*
+      - latest
 
 env:
   IMAGE_NAME: quake3e-server
