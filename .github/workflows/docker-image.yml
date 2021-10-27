@@ -5,6 +5,7 @@ on:
   push:
     
     # Publish `v1.2.3` tags as releases.
+    # So I don't forget again. This is only trigged when you create a *new* tags starting with v
     tags:
       - v*
 env:
