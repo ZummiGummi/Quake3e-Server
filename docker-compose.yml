@@ -5,7 +5,7 @@ services:
         container_name: quake3e-server
         restart: unless-stopped
         volumes:
-            - ./base3q:/q3e/baseq3
+            - ./baseq3:/q3e/baseq3
         ports:
             - "27960:27960/udp"
             
