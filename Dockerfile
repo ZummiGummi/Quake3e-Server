@@ -13,7 +13,7 @@ WORKDIR /q3e
 # Download this file, it will go into /q3e due to the WORKDIR command from before.
 # curl -O is to download the file with the default name of the name, if you don't include -O it will try and show the contents of the file.
 # -L is to allow redirects, or curl will download the redirect page.
-RUN curl -L -O https://github.com/ec-/Quake3e/releases/download/2021-10-14/quake3e-linux-x86_64.zip
+RUN curl -L -O https://github.com/ec-/Quake3e/releases/download/2022-10-14/quake3e-linux-x86_64.zip
 
 # Unzip the file to directory /q3e
 RUN unzip quake3e-linux-x86_64.zip -d /q3e
